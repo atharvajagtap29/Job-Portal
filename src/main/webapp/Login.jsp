@@ -47,6 +47,9 @@ body {
 	<input type="hidden" id="msg"
 		value="<%=session.getAttribute("status")%>">
 
+	<input type="hidden" id="msg"
+		value="<%=session.getAttribute("success")%>">
+
 	<div class="content-wrapper">
 		<div class="container-fluid">
 			<div class="row p-5">
@@ -82,8 +85,10 @@ body {
 							<%-- JSP code --%>
 							<%
 							String msg = (String) session.getAttribute("status");
+							String msg2 = (String) session.getAttribute("success");
 							%>
-							<input type="hidden" id="msg" value="<%=msg%>">
+							<input type="hidden" id="msg" value="<%=msg%>"> <input
+								type="hidden" id="msg" value="<%=msg2%>">
 
 
 							<!-- JavaScript -->
@@ -99,10 +104,16 @@ body {
 										text : "Invalid username or password",
 										type : "error"
 									});
-								} /* else if (status === "Error occurred") {
-																swal("Couldn't Insert",
-																		"Something went wrong", "error");
-															} */
+								}
+
+								var status2 = document.getElementById("msg2").value;
+								if (status2 === "Logout Successfully") {
+									swal({
+										title : "Done",
+										text : "Logged Out Successfully",
+										type : "success"
+									});
+								}
 							</script>
 
 						</div>

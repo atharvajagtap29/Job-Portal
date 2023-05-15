@@ -1,4 +1,5 @@
 
+
 <style>
 .btn {
 	margin-right: 10px;
@@ -49,14 +50,14 @@
 			<form class="d-flex">
 
 				<c:if test="${userobj.role eq 'Admin'}">
-					<a href="Login.jsp" class='btn btn-outline-warning btn-light'><i
+					<a href="#" class='btn btn-outline-warning btn-light'><i
 						class="fa-solid fa-user"></i> ADMIN</a>
 					<a href="logout" class='btn btn-outline-warning btn-light'><i
 						class="fas fa-sign-in-alt"></i> SIGN OUT</a>
 				</c:if>
 
 				<c:if test="${userobj.role eq 'User'}">
-					<a href="Login.jsp" class='btn btn-outline-warning btn-light'><i
+					<a href="#" class='btn btn-outline-warning btn-light'><i
 						class="fa-solid fa-user"></i> ${userobj.name}</a>
 					<a href="logout" class='btn btn-outline-warning btn-light'><i
 						class="fas fa-sign-in-alt"></i> SIGN OUT</a>
@@ -78,3 +79,110 @@
 		</div>
 	</div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+	data-bs-keyboard="false" tabindex="-1"
+	aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+
+
+
+				<div class="card">
+					<div class="card-body">
+						<div class="text-center text-primary">
+							<i class="fa-regular fa-user-cowboy"></i>
+						</div>
+						<table class="table">
+
+							<tbody>
+
+								<tr>
+									<th scope="row">Name</th>
+									<th>${userobj.name }</th>
+								</tr>
+								<tr>
+									<th scope="row">Qualification</th>
+									<th>${userobj.qualification }</th>
+								</tr>
+								<tr>
+									<th scope="row">Email</th>
+									<th>${userobj.email }</th>
+								</tr>
+
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+
+
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary"
+					data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Edit</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+ --%>
