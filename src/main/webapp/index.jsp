@@ -37,7 +37,7 @@
 		<div class="text-center">
 			<h1 class="text-white p-4"
 				style="text-decoration: underline; font-weight: bold;">
-				<i class="fa-solid fa-laptop-file"></i> ONLINE JOB PORTAL
+				<i class="fa-solid fa-laptop-file"></i> JOBS HUNT PORTAL
 			</h1>
 		</div>
 	</div>

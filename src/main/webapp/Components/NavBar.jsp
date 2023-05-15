@@ -22,7 +22,7 @@
 <%@ page isELIgnored="false"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="#">JobsHunt</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,9 +32,29 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.jsp"><i
-						class="fa-solid fa-house"></i> HOME</a></li>
+
+				<c:if test="${userobj.role ne 'Admin' && userobj.role ne 'User'}">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="index.jsp"><i
+							class="fa-solid fa-house"></i> LAUNCH</a></li>
+				</c:if>
+
+				<c:if test="${userobj.role eq 'Admin'}">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="Admin.jsp"><i
+							class="fa-solid fa-house"></i> HOME</a></li>
+				</c:if>
+
+				<c:if test="${userobj.role eq 'User'}">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="User.jsp"><i
+							class="fa-solid fa-house"></i> HOME</a></li>
+				</c:if>
+
+
+
+
+
 
 				<c:if test="${userobj.role eq 'Admin'}">
 					<li class="nav-item"><a class="nav-link" href="Addjob.jsp"><i
@@ -43,9 +63,10 @@
 							class="fa-solid fa-eye"></i> VIEW JOB</a></li>
 				</c:if>
 
-
-
-
+				<c:if test="${userobj.role eq 'User'}">
+					<li class="nav-item"><a class="nav-link" href="Home.jsp"><i
+							class="fa-solid fa-magnifying-glass"></i> SEARCH JOBS</a></li>
+				</c:if>
 			</ul>
 			<form class="d-flex">
 

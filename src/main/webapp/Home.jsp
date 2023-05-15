@@ -59,6 +59,8 @@ label {
 	</c:if>
 	<%@include file="Components/NavBar.jsp"%>
 
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -114,7 +116,6 @@ label {
 
 
 
-				<br> <br>
 				<br>
 
 
@@ -123,58 +124,70 @@ label {
 
 
 				<!-- card-2 -->
-				<%
+				<%-- <%
 				JobDAO dao = new JobDAO(DBconnect.getConn());
 				List<Job> list = dao.getJobsForUser();
 				for (Job j : list) {
-				%>
+				%> --%>
 
-				<div class="card mt-2">
-					<div class="card-body">
-						<div class="row align-items-center mb-3">
-							<div class="col-auto">
-								<i class="fa-solid fa-briefcase fa-2x text-primary"></i>
+				<div class="row">
+					<%
+					JobDAO dao = new JobDAO(DBconnect.getConn());
+					List<Job> list = dao.getJobsForUser();
+					for (Job j : list) {
+					%>
+					<div class="col-md-4">
+						<div class="card mt-2">
+							<div class="card-body">
+								<div class="row mb-3">
+									<div class="col-auto">
+										<i class="fa-solid fa-briefcase fa-2x text-primary"></i>
+									</div>
+									<div class="col mb-3">
+										<h5 class="card-title mb-0"><%=j.getTitle()%></h5>
+										<%
+										if (j.getDescription() != null && j.getDescription().length() > 0) {
+										%>
+										<p class="card-text"><%=j.getDescription().length() > 120 ? j.getDescription().substring(0, 120) + "..." : j.getDescription()%></p>
+										<%
+										}
+										%>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<div class="col-md-4">
+										<input type="text" class="form-control form-control-sm"
+											value="Location: <%=j.getLocation()%>" readonly>
+									</div>
+									<div class="col-md-4">
+										<input type="text" class="form-control form-control-sm"
+											value="Category: <%=j.getCategory()%>" readonly>
+									</div>
+									<div class="col-md-4 col text-md-right">
+										<small>Publish Date: <%=j.getPdate().toString()%></small>
+									</div>
+								</div>
+								<div class="text-center">
+									<a href="one_view.jsp?id=<%=j.getId()%>"
+										class="btn btn-sm btn-success">View More</a>
+								</div>
 							</div>
-							<div class="col">
-								<h6 class="card-title mb-0"><%=j.getTitle()%></h6>
-								<%
-								if (j.getDescription() != null && j.getDescription().length() > 0) {
-								%>
-								<p class="card-text"><%=j.getDescription().length() > 120 ? j.getDescription().substring(0, 120) + "..." : j.getDescription()%></p>
-								<%
-								}
-								%>
-							</div>
-						</div>
-						<div class="row mb-3">
-							<div class="col-md-3">
-								<input type="text" class="form-control form-control-sm"
-									value="Location: <%=j.getLocation()%>" readonly>
-							</div>
-							<div class="col-md-3">
-								<input type="text" class="form-control form-control-sm"
-									value="Category: <%=j.getCategory()%>" readonly>
-							</div>
-							<div class="col-md-6 text-right">
-								<small>Publish Date: <%=j.getPdate().toString()%></small>
-							</div>
-						</div>
-						<div class="text-center">
-							<a href="one_view.jsp?id=<%=j.getId()%>"
-								class="btn btn-sm btn-success">View More</a>
 						</div>
 					</div>
+					<%
+					}
+					%>
 				</div>
-				<br>
+
+
+
 
 
 
 
 
 			</div>
-			<%
-			}
-			%>
+
 		</div>
 	</div>
 

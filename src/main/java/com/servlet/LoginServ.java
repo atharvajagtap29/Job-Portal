@@ -49,7 +49,7 @@ public class LoginServ extends HttpServlet {
 //					resp.sendRedirect("Home.jsp");
 					session.setAttribute("status", "success");
 					session2.setAttribute("userobj", user);
-					resp.sendRedirect("Home.jsp");
+					resp.sendRedirect("User.jsp");
 				} else {
 					HttpSession session = req.getSession(true);
 					session.setAttribute("status", "failed");
