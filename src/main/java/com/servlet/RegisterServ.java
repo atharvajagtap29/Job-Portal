@@ -14,8 +14,8 @@ import com.dao.UserDAO;
 import com.entity.User;
 
 @WebServlet("/signup")
-public class RegisterServ extends HttpServlet{
-	
+public class RegisterServ extends HttpServlet {
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -31,16 +31,42 @@ public class RegisterServ extends HttpServlet{
 		
 		User u = new User(name, username, email, password, qualification, "User");
 		
-		boolean f = dao.addUser(u);
+		// password validator
+		boolean containsSpecialChar = !password.matches("[a-zA-Z0-9 ]*");
+        boolean containsUppercase = !password.equals(password.toLowerCase());
+        boolean containsLowercase = !password.equals(password.toUpperCase());
+		if(containsSpecialChar && containsUppercase && containsLowercase){
+			
+			boolean f = dao.addUser(u);
 		
-		HttpSession session = req.getSession();
-		if(f) {
-			session.setAttribute("status", "Successful");
-			resp.sendRedirect("SignUp.jsp");
+			HttpSession session = req.getSession();
+			if(f) {
+				session.setAttribute("status", "Successful");
+				resp.sendRedirect("SignUp.jsp");
+			} else {
+				session.setAttribute("status", "Failed");
+				resp.sendRedirect("SignUp.jsp");
+			}
+			
 		} else {
-			session.setAttribute("status", "Failed");
+			HttpSession session = req.getSession();
+			session.setAttribute("password", "invalid");
 			resp.sendRedirect("SignUp.jsp");
 		}
 	}
-	
+
 }
+
+
+
+
+
+/*
+ * boolean containsSpecialChar = !password.matches("[a-zA-Z0-9 ]*");
+        boolean containsUppercase = !password.equals(password.toLowerCase());
+        boolean containsLowercase = !password.equals(password.toUpperCase());
+		if(containsSpecialChar && containsUppercase && containsLowercase){} else {
+			HttpSession session = req.getSession();
+			session.setAttribute("password", "invalid");
+			resp.sendRedirect("SignUp.jsp");
+		}*/

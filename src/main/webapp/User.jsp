@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Panel</title>
+<title>User Panel</title>
 <%@include file="Components/CSS.jsp"%>
 
 <style type="text/css">
@@ -33,7 +33,7 @@
 				<marquee>
 					<h1 class="text-white p-4"
 						style="text-decoration: underline; font-weight: bold;">
-						<i class="fa-solid fa-laptop-file"></i> Welcome ${userobj.name}
+						<i class="fa-solid fa-laptop-file"></i> Welcome ${userobj.name}!
 					</h1>
 				</marquee>
 			</div>

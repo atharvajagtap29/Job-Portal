@@ -39,7 +39,7 @@ public class LogoutServ extends HttpServlet {
 		// another session in order to retrieve and destroy the object
 		HttpSession session2 = req.getSession(false);
 		user = (User) session.getAttribute("userobj");
-		session2.setAttribute("destroy", "Login.jsp");
+		session2.setAttribute("destroy", "index.jsp");
 		session2.removeAttribute("userobj");
 
 		// Display Sweet Alert confirmation dialog

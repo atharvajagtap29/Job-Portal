@@ -3,7 +3,6 @@
 <%@ page import="com.dao.JobDAO"%>
 <%@ page import="com.DB.DBconnect"%>
 <%@ page import="com.entity.Job"%>
-<%@ page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
@@ -59,12 +58,20 @@
 							<%=j.getPdate().toString()%>
 						</div>
 
+						<div class="text-center">
+							<!-- Button container with centering styles -->
+							<a href="Apply.jsp?id=<%=j.getId()%>"
+								class="btn btn-outline-success mr-2">APPLY JOB</a> <a
+								href="Home.jsp" class="btn btn-outline-primary mr-2">BACK</a>
+						</div>
+
 					</div>
 				</div>
 
 			</div>
 		</div>
 	</div>
+
 
 </body>
 

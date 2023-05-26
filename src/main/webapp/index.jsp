@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Landing Page</title>
 <%@include file="Components/CSS.jsp"%>
 
 <style type="text/css">

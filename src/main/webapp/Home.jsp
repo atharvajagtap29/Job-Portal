@@ -15,6 +15,12 @@
 <title>User: Home</title>
 <%@include file="Components/CSS.jsp"%>
 <style type="text/css">
+body {
+	background-image: url('Img/back.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .card {
 	margin-top: 20px;
 	border: none;
@@ -64,7 +70,7 @@ label {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h5 class="text-center text-primary">AVAILABLE JOBS</h5>
+				<h3 class="text-center text-black">AVAILABLE JOBS</h3>
 
 				<div class="card">
 					<div class="card-body">
@@ -105,7 +111,7 @@ label {
 									</div>
 								</div>
 								<div class="col-md-2 my-1">
-									<button type="submit" class="btn btn-primary btn-block">Search
+									<button type="submit" class="btn btn-outline-success">Search
 										Jobs</button>
 								</div>
 							</div>
@@ -137,7 +143,7 @@ label {
 					for (Job j : list) {
 					%>
 					<div class="col-md-4">
-						<div class="card mt-2">
+						<div class="card mb-2">
 							<div class="card-body">
 								<div class="row mb-3">
 									<div class="col-auto">

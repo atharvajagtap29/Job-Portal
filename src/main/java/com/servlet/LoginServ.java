@@ -31,8 +31,11 @@ public class LoginServ extends HttpServlet {
 
 			String un = req.getParameter("uname");
 			String pass = req.getParameter("pass");
+			
+			String adminUsername = "admin";
+			String adminPass = "admin#@123";
 
-			if ("admin".equals(un) && "12345".equals(pass)) {
+			if (adminUsername.equals(un) && adminPass.equals(pass)) {
 				HttpSession session = req.getSession(true);
 				session.setAttribute("userobj", u);
 				u.setRole("Admin");

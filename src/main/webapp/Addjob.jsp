@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Admin: Add Job</title>
+
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -19,6 +21,9 @@
 <%@include file="Components/CSS.jsp"%>
 <style>
 body {
+	background-image: url('Img/back.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	background-color: #f8f9fa;
 	font-family: 'Helvetica Neue', sans-serif;
 }
@@ -64,7 +69,14 @@ button[type="submit"] {
 button[type="submit"]:hover {
 	background-color: #0069d9;
 }
+
+container {
+	margin-top: 70px; /* Adjust the margin value as needed */
+}
 </style>
+<link rel='stylesheet'
+	href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+
 
 </head>
 <body style="background-color: #f0f1f2;">
@@ -72,13 +84,11 @@ button[type="submit"]:hover {
 		<c:redirect url="Login.jsp"></c:redirect>
 	</c:if>
 
-	<input type="hidden" id="msg" value="<%=session.getAttribute("msg")%>">
-
 	<%@include file="Components/NavBar.jsp"%>
-	<div class="container">
-		<div class="card">
+	<div class="container mt-4">
+		<div class="card mb-4">
 			<div class="card-header">
-				<h1 class="text-center text-black display-4 mb-0">
+				<h1 class="text-center text-black display-6 mb-0">
 					<i class="fa-solid fa-upload"></i> POST A JOB
 				</h1>
 			</div>
@@ -149,7 +159,8 @@ button[type="submit"]:hover {
 					</div>
 
 
-					<button type="submit" class="btn btn-primary">Post Job</button>
+					<button type="submit" class="btn btn-outline-success">POST
+						JOB</button>
 				</form>
 
 				<%-- JSP code --%>
@@ -164,8 +175,7 @@ button[type="submit"]:hover {
 				<script src="js/main.js"></script>
 				<script
 					src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-				<link rel='stylesheet'
-					href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+
 
 				<script type="text/javascript">
 					var status = document.getElementById("msg").value;

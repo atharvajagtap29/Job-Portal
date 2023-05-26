@@ -264,4 +264,35 @@ public class JobDAO {
 		return list;
 
 	}
+	
+	public boolean appliedJob(int id, String profile, String name, String email, String phone, String resume, String availability) {
+		boolean f = false;
+		
+		try {
+			
+			String query = "insert into jobApplication(jobId, jobProfile, name, email, phone, resume, availability) values(?,?,?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			ps.setInt(1, id);
+			ps.setString(2, profile);
+			ps.setString(3, name);
+			ps.setString(4, email);
+			ps.setString(5, phone);
+			ps.setString(6, resume);
+			ps.setString(7, availability);
+			
+			int cnt = ps.executeUpdate();
+			
+			if(cnt != 0) {
+				f = true;
+			}
+			
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+	}
 }

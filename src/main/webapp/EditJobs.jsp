@@ -27,6 +27,9 @@
 <%@include file="Components/CSS.jsp"%>
 <style>
 body {
+	background-image: url('Img/back.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	background-color: #f8f9fa;
 	font-family: 'Helvetica Neue', sans-serif;
 }
@@ -84,15 +87,15 @@ button[type="submit"]:hover {
 		value="<%=session.getAttribute("message")%>">
 
 	<%@include file="Components/NavBar.jsp"%>
-	<div class="container">
+	<div class="container mt-4">
 		<%
 		int id = Integer.parseInt(request.getParameter("id"));
 		JobDAO dao = new JobDAO(DBconnect.getConn());
 		Job j = dao.getJobsById(id);
 		%>
-		<div class="card">
+		<div class="card mb-4">
 			<div class="card-header">
-				<h1 class="text-center text-black display-4 mb-0">
+				<h1 class="text-center text-black display-6 mb-0">
 					<i class="fa-solid fa-upload"></i> EDIT JOB
 				</h1>
 			</div>
@@ -169,7 +172,8 @@ button[type="submit"]:hover {
 					</div>
 
 
-					<button type="submit" class="btn btn-primary">Edit Changes</button>
+					<button type="submit" class="btn btn-outline-success">SAVE
+						CHANGES</button>
 				</form>
 
 				<%-- <c:if test="${not empty sessionScope.message}">

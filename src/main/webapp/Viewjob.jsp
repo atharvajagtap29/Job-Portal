@@ -16,8 +16,9 @@
 <%@ include file="Components/CSS.jsp"%>
 <style>
 body {
-	background-color: #f0f1f2;
-	font-family: Arial, sans-serif;
+	background-image: url('Img/back.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .container {
@@ -86,6 +87,10 @@ body {
 	<%@ include file="Components/NavBar.jsp"%>
 
 	<div class="container mt-4">
+		<h5
+			style="text-align: center; color:; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px;">ALL
+			INSERTED JOBS</h5>
+
 		<%
 		// Retrieve the list of jobs from the database
 		JobDAO dao = new JobDAO(DBconnect.getConn());
@@ -94,6 +99,7 @@ body {
 		// Loop through the list of jobs and display them inside a card
 		for (Job job : jobs) {
 		%>
+
 		<div class="card mb-4">
 			<div class="card-body">
 				<div class="row align-items-center">
@@ -119,6 +125,7 @@ body {
 									id="job-status" class="form-control form-control-sm"
 									value="<%=job.getStatus()%>" readonly>
 							</div>
+
 						</div>
 						<div class="row">
 							<div class="col-md-6">
@@ -142,6 +149,7 @@ body {
 		}
 		%>
 	</div>
+</body>
 
 
 
@@ -219,7 +227,7 @@ body {
 
 
 
-	<%-- <%@ page import="com.dao.JobDAO"%>
+<%-- <%@ page import="com.dao.JobDAO"%>
 <%@ page import="com.DB.DBconnect"%>
 <%@ page import="com.entity.Job"%>
 <%@ page import="java.util.List"%>
