@@ -1,0 +1,13 @@
+com\servlet\DeleteServ.class
+com\servlet\ApplyServ.class
+com\servlet\RegisterServ.class
+com\dao\UserDAO.class
+com\dao\JobDAO.class
+com\servlet\AddPostJob.class
+com\entity\Job.class
+com\DB\DBconnect.class
+com\entity\User.class
+com\servlet\UpdateServ.class
+com\servlet\LogoutServ.class
+com\servlet\UpdateUserServ.class
+com\servlet\LoginServ.class

@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,13 @@ public class RegisterServ extends HttpServlet {
 		String password = req.getParameter("password");
 		String qualification = req.getParameter("qualification");
 		
-		UserDAO dao = new UserDAO(DBconnect.getConn());
+		UserDAO dao = null;
+		try {
+			dao = new UserDAO(DBconnect.getConn());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		User u = new User(name, username, email, password, qualification, "User");
 		

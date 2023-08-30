@@ -1,9 +1,8 @@
 package com.servlet;
 
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +35,13 @@ public class ApplyServ extends HttpServlet {
 		String resume = req.getParameter("resume");
 		String availability = req.getParameter("availability");
 
-		JobDAO dao = new JobDAO(DBconnect.getConn());
+		JobDAO dao = null;
+		try {
+			dao = new JobDAO(DBconnect.getConn());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		int phoneLength = 10;
 
